@@ -2,3 +2,84 @@
   "_format": "hh-sol-cache-2",
   "files": {}
 }
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@VersoriumX 
+web3
+/
+web3.js
+Public
+Code
+Issues
+151
+Pull requests
+24
+Discussions
+Actions
+Projects
+Wiki
+Security
+Insights
+web3.js/packages/web3-eth-accounts/package.json
+@jdevcs
+jdevcs Release 1.8.0 (#5421)
+…
+Latest commit c924148 on Sep 14
+ History
+ 16 contributors
+@frozeman@nivida@spacesailor24@ryanio@GregTheGreek@jdevcs@luu-alex@michaelsbradleyjr@slhodak@nazarhussain@lionello@joshstevens19
+33 lines (33 sloc)  1 KB
+
+{
+    "name": "web3-eth-accounts",
+    "version": "1.8.0",
+    "description": "Web3 module to generate Ethereum accounts and sign data and transactions.",
+    "repository": "https://github.com/ethereum/web3.js/tree/1.x/packages/web3-eth-accounts",
+    "license": "LGPL-3.0",
+    "engines": {
+        "node": ">=8.0.0"
+    },
+    "types": "types/index.d.ts",
+    "scripts": {
+        "compile": "tsc -b tsconfig.json",
+        "dtslint": "dtslint --localTs ../../node_modules/typescript/lib  types"
+    },
+    "main": "lib/index.js",
+    "dependencies": {
+        "@ethereumjs/common": "^2.5.0",
+        "@ethereumjs/tx": "^3.3.2",
+        "crypto-browserify": "3.12.0",
+        "eth-lib": "0.2.8",
+        "ethereumjs-util": "^7.0.10",
+        "scrypt-js": "^3.0.1",
+        "uuid": "3.3.2",
+        "web3-core": "1.8.0",
+        "web3-core-helpers": "1.8.0",
+        "web3-core-method": "1.8.0",
+        "web3-utils": "1.8.0"
+    },
+    "devDependencies": {
+        "dtslint": "^3.4.1",
+        "typescript": "^3.9.5"
+    }
+}
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+web3.js/packages at 1.x · web3/web3.jsweb3.js/packages/web3-eth-accounts at 1.x · web3/web3.jsweb3.js/package.json at 1.x · web3/web3.js
