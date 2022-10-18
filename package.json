@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/anyswap/anyswap-token#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "2.5.0"
+    "@chainlink/contracts": "^0.5.1",
+    "@openzeppelin/contracts": "^4.7.3"
   }
 }
