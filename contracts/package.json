@@ -12,3 +12,7 @@
     "web3": "^0.20.7"
   }
 }
+
+extendEnvironment((hre) => {
+  hre.hi = "Hello, Hardhat!";
+});
