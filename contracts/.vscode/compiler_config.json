@@ -1,0 +1,24 @@
+
+const InitializableMock = artifacts.require('InitializableMock');
+const ConstructorInitializableMock = artifacts.require('ConstructorInitializableMock');
+const ChildConstructorInitializableMock = artifacts.require('ChildConstructorInitializableMock');
+const ReinitializerMock = artifacts.require('ReinitializerMock');
+const SampleChild = artifacts.require('SampleChild');
+
+
+{
+	"language": "Solidity",
+	"settings": {
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"outputSelection": {
+			"*": {
+			"": ["ast"],
+			"*": ["abi", "metadata", "devdoc", "userdoc", "storageLayout", "evm.legacyAssembly", "evm.bytecode", "evm.deployedBytecode", "evm.methodIdentifiers", "evm.gasEstimates", "evm.assembly"]
+			}
+		},
+		"evmVersion": "Petersburg"
+	}
+}
