@@ -1,11 +1,11 @@
 export const networkParams = {
-    "0x63564c40": {
-      chainId: "0x63564c40",
-      rpcUrls: ["https://api.harmony.one"],
-      chainName: "Harmony Mainnet",
-      nativeCurrency: { name: "ONE", decimals: 18, symbol: "ONE" },
-      blockExplorerUrls: ["https://explorer.harmony.one"],
-      iconUrls: ["https://harmonynews.one/wp-content/uploads/2019/11/slfdjs.png"]
+    "0x01": {
+      chainId: "0x01",
+      rpcUrls: ["https://mainnet.infura.io/v3/8264661ebc6343dea7371a9dd2dd2669"],
+      chainName: "Mainnet",
+      nativeCurrency: { name: "Ethereum", decimals: 18, symbol: "ETH" },
+      blockExplorerUrls: ["https://eterscan.io"],
+      iconUrls: ["https://ethereum.org/en/"]
     },
     "0xa4ec": {
       chainId: "0xa4ec",
