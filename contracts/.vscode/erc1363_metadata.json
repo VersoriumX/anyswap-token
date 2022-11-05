@@ -1,0 +1,325 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC1363",
+						"name": "acceptedToken_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "TokensApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "TokensReceived",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "acceptedToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC1363",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onApprovalReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onTransferReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Vittorio Minacori (https://github.com/vittominacori)",
+			"details": "Implementation proposal of a contract that wants to accept ERC1363 payments",
+			"events": {
+				"TokensApproved(address,uint256,bytes)": {
+					"details": "Emitted when the allowance of this for a `sender` is set by a call to {approveAndCall}. `amount` is the new allowance."
+				},
+				"TokensReceived(address,address,uint256,bytes)": {
+					"details": "Emitted when `amount` tokens are moved from one account (`sender`) to this by spender (`operator`) using {transferAndCall} or {transferFromAndCall}."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"acceptedToken()": {
+					"details": "The ERC1363 token accepted"
+				},
+				"constructor": {
+					"params": {
+						"acceptedToken_": "Address of the token being accepted"
+					}
+				},
+				"onApprovalReceived(address,uint256,bytes)": {
+					"details": "Any ERC1363 smart contract calls this function on the recipient after an `approve`. This function MAY throw to revert and reject the approval. Return of other than the magic value MUST result in the transaction being reverted. Note: the token contract address is always the message sender.",
+					"params": {
+						"amount": "uint256 The amount of tokens to be spent",
+						"data": "bytes Additional data with no specified format",
+						"sender": "address The address which called `approveAndCall` function"
+					},
+					"returns": {
+						"_0": "`bytes4(keccak256(\"onApprovalReceived(address,uint256,bytes)\"))` unless throwing"
+					}
+				},
+				"onTransferReceived(address,address,uint256,bytes)": {
+					"details": "Any ERC1363 smart contract calls this function on the recipient after a `transfer` or a `transferFrom`. This function MAY throw to revert and reject the transfer. Return of other than the magic value MUST result in the transaction being reverted. Note: the token contract address is always the message sender.",
+					"params": {
+						"amount": "uint256 The amount of tokens transferred",
+						"data": "bytes Additional data with no specified format",
+						"sender": "address The address which are token transferred from",
+						"spender": "address The address which called `transferAndCall` or `transferFromAndCall` function"
+					},
+					"returns": {
+						"_0": "`bytes4(keccak256(\"onTransferReceived(address,address,uint256,bytes)\"))` unless throwing"
+					}
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				}
+			},
+			"title": "ERC1363Payable",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"onApprovalReceived(address,uint256,bytes)": {
+					"notice": "Handle the approval of ERC1363 tokens"
+				},
+				"onTransferReceived(address,address,uint256,bytes)": {
+					"notice": "Handle the receipt of ERC1363 tokens"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Erc1363payable.sol": "ERC1363Payable"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+			"keccak256": "0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb0048dee081f6fffa5f74afc3fb328483c2a30504e94a0ddd2a5114d731ec4d",
+				"dweb:/ipfs/QmZptt1nmYoA5SgjwnSgWqgUSDgm4q52Yos3xhnMv3MV43"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/ERC165Checker.sol": {
+			"keccak256": "0xc65c83c1039508fa7a42a09a3c6a32babd1c438ba4dbb23581255e784b5d5eed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a1b3b38db0f76429db899909025e534c366415e9ea8b5ddc4c8901e6a7fc1461",
+				"dweb:/ipfs/QmYv1KxyHjLEky9JWNSsSfpGJbiCxFyzVFgTwQKpiqYGUg"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"contracts/Erc1363payable.sol": {
+			"keccak256": "0x69dff4a1c5ab0c12120f717c6dfa2cb9af51ace4d1dcbba322945f1e7121e258",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c16a6453de147b8c95818c3530c27efa519044e562ef2cbfde99c2470aeace08",
+				"dweb:/ipfs/Qmd8mSgywZ3AwK6dT78t4p8peVzrTcuxkbzvKdwbRbreSX"
+			]
+		},
+		"https://github.com/vittominacori/erc1363-payable-token/blob/master/contracts/token/ERC1363/IERC1363.sol": {
+			"keccak256": "0x2bdb5d89f0f41991d8dbec6734b00a3e85f880e813d9567a0df163e4ef945bbb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8ce45a1a5b8f02f49c3b7cc93f7c2caba8904934bce17da6a08ba85741133a28",
+				"dweb:/ipfs/QmdA6yd8UnhXqBqr9WN9bKYE3xRFY3FaanwS52cTH3seyw"
+			]
+		},
+		"https://github.com/vittominacori/erc1363-payable-token/blob/master/contracts/token/ERC1363/IERC1363Receiver.sol": {
+			"keccak256": "0x3845a7f8dadf7f21c7303b5e64a55ed36b7b245353a01b883811ca5c825f03dc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://44c47e742929510c8962362929c4ccbb1b154c3872b222a3c3febcc23e4d8ad3",
+				"dweb:/ipfs/QmRCFN4bGFTeD2tkai2TNA6KA5M1np6RabUdsjcHzekapC"
+			]
+		},
+		"https://github.com/vittominacori/erc1363-payable-token/blob/master/contracts/token/ERC1363/IERC1363Spender.sol": {
+			"keccak256": "0x643734ce32156b6936598060f34c8244b04e7d0c6ef0e1e8ea49f9286c261dd1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f015a8f7eb6dd3b294ace9f3a2ad35cf0981263eda0067bc1d7ad8feeb7a82eb",
+				"dweb:/ipfs/QmezBp1BLWLSS3HuNhbmTUUGKpeWDHW29joC2AU8KZ3hFy"
+			]
+		}
+	},
+	"version": 1
+}/*  */
