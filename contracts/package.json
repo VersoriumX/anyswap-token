@@ -10,10 +10,10 @@
     "@nomiclabs/hardhat-web3-legacy": "^2.0.0",
     "ethers": "^5.0.0",
     "hardhat": "^2.12.1",
-    "web3": "^0.20.7"
+    "web3": "^1.5.3"
   },
   "dependencies": {
-    "@coinbase/wallet-sdk": "^3.5.4",
+    "@coinbase/wallet-sdk": "^3.9.3",
     "@eth-optimism/plugins": "^1.0.0-alpha.3",
     "bindings": "^1.5.0",
     "js-scrypt": "^0.2.0",
